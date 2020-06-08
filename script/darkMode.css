@@ -1,0 +1,177 @@
+body{
+    background-color:#141414 !important;
+    color:#d9d9d9;
+}
+main .content-wrapper .content-block {
+    background-color: #454545 !important;
+    color: var(--darkMode-Textcolor) !important;
+}
+main .content-wrapper .content-block .content-panel,
+.form-actions {
+    background-color: #303030;
+}
+#greatest-effect, #percentage-text, #assignment-list{
+    color: white;
+}
+#menu, .container-fluid {
+    background-color: black !important;
+}
+#menu:not(.narrow) li.quick-add a {
+    border-color: gray;
+}
+#menu .nav-menu,
+#menu .nav-menu li>a {
+    background-color: black !important;
+}
+#menu .nav-menu li.parent>ul.nav li.more a {
+    background-color: black !important;
+}
+#menu .nav-menu a.active {
+    background-color: #424242 !important;
+}
+div.row {
+    background-color: inherit;
+}
+div #assets,
+.message-notifications,
+label {
+    color: white;
+}
+.date-badge div.day {
+    color: black !important;
+}
+h2, h3, h4,
+.checkbox label, .line,
+div.day {
+    color:white !important;
+}
+div.description{
+    color: #c4c4c4 !important;
+}
+a .description .details {
+    font-weight: bold;
+    text-shadow: 1px 0 0#000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}
+.form-actions {
+    background-color: #696969 !important;
+}
+.redactor-styles {
+    color: #d6d6d6 !important;
+}
+.action {
+    background-color: gray;
+}
+.two-weeks-calendar tbody td.day.today {
+    background-color: #454545 !important;
+}
+.td {
+    background-color: black;
+}
+tr, .tr,
+tbody, tbody:hover  {
+    color: white;
+    background-color: black;
+}
+.row {
+    background-color: #696969;
+}
+.table-striped>tbody>tr:nth-of-type(n),
+.table-fusion>tbody>tr:nth-of-type(n),
+tr:hover, tr:focus {
+    background-color: black !important;
+}
+.content-panel {
+    background-color: black !important;
+    color: white;
+}
+.highcharts-container {
+    fill: #001f66;
+}
+tr.unread .title a {
+    color: #5dadfc
+}
+tr.message .title a {
+    color: #1249c7;
+}
+textarea, section {
+    background-color: black;
+    color: white;
+}
+.panel-default>.panel-heading {
+    background-color: black;
+}
+.panel-heading, .panel-body,
+select {
+    background-color: black;
+    color: white;
+}
+.body {
+    color: #dbdbdb;
+}
+.sidebar section {
+    background-color: inherit;
+}
+.content-block-header .nav-tabs>li.active>a,
+.content-block-header .nav-tabs>li.active>a:hover,
+.content-block-header .nav-tabs>li.active>a:focus {
+    background-color: #184ecc !important;
+    color: white !important;
+}
+.nav-tabs>li>a:hover{
+    background-color: #2551b6 !important
+}
+.fc-row .fc-content-skeleton td,
+.fc-row .fc-helper-skeleton td {
+    border-color: white !important;
+}
+.fc-today {
+    color: white;
+    background-color: #635d5d !important;
+}
+.fc-head .fc-head-container .fc-widget-header {
+    color: inherit !important;
+}
+.discussion .replies .reply.form .body {
+    background-color: black;
+    color: white;
+}
+.redactor-box.redactor-styles-on,
+.form-control {
+    background-color: #212121 !important;
+    color: white;
+}
+.fc-scroller.fc-day-grid-container {
+    background-color: white;
+}
+.sidebar .panel-sidebar .panel-default>.panel-body,
+.panel-heading {
+    background-color: black !important;
+    background-image: none !important;
+}
+a[href*='tel:'], .popover-content label {
+    color: gray;
+}
+.desc .redactor-styles {
+    color: black !important;
+}
+.navbar-default .navbar-nav>.open>a,
+.navbar-default .navbar-nav>.open>a:hover,
+.navbar-default .navbar-nav>.open>a:focus {
+    background-color: black;
+}
+.dropdown-menu,
+.dropdown-menu>li>a {
+    background-color: black;
+    color: gray !important;
+}
+.dropdown-menu>li>a:hover {
+    background-color: gray;
+    color: black !important;
+}
+li a[role="tab"]{
+    background-color: #2e2e2e !important;
+    
+}
+#progress_term_set{
+    color: white;
+}
