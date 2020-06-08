@@ -316,7 +316,7 @@ function Grader_Tasks(){
         }
         return obj;
     });
-    const dataScoreSort = data.slice();
+    const dataScoreSort = Object.assign({},data);
     dataScoreSort.sort(function (a, b) {
         a = a.total - a.gained;
         b = b.total - b.gained;
@@ -389,7 +389,7 @@ function Grader_Tasks(){
     }
     return;
 }
-var targetNode = document.querySelector("head");//Array.from(document.querySelectorAll(".nav li")).filter(line => line.innerText === "Tasks")[0];
+var targetNode = document.querySelector("head");
 var observer = new MutationObserver(function (mutations) {
     if(document.querySelector(".nav li.active").innerText == "Tasks" &&
     document.querySelectorAll("#percentage-text").length === 0 &&
