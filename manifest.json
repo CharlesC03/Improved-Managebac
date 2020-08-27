@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Improved Managebac",
-  "version": "2.5.0",
+  "version": "2.5.1",
   "description": "Improved Managebac improves your experience with Managebac.",
   "icons": {"128": "images/mb.png"},
   "permissions": ["*://*.managebac.com/student/*", "storage","tabs"],
