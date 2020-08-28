@@ -206,12 +206,14 @@ li a[role="tab"]{
 }
 strong {
     color: rgba(64, 91, 209, 1);
-    text-shadow: -2px 0 rgb(0,0,0,0.5),
-    0 2px rgb(0, 0, 0, 0.5),
-    2px 0 rgb(0, 0, 0, 0.5),
-    0 -2px rgb(0, 0, 0, 0.5);
 
 }
 .mn-item.item.unread::after {
-    background-color: rgba(85, 85, 85, 0.7) !important;
+    background-color: rgba(0, 0, 0, 0.4) !important;
+}
+div.item-info {
+    background-color: rgb(50, 50, 50) !important;
+}
+.mn-item-head {
+    background-color: rgb(20, 20, 20) !important;
 }
