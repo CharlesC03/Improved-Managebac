@@ -178,3 +178,40 @@ li a[role="tab"]{
 .file{
     background-color: rgb(0,0,0,0) !important;
 }
+.modal-body,
+.mn-item-wrap
+.mn-item::after {
+    background-color: rgba(66, 66, 66, 0.4) !important;
+}
+.mn-item::after.opened.item{
+    background-color: rgba(255, 255, 255, 0.01) !important;
+}
+.mn-item::after.item.unread {
+    background-color: rgb(0,0,0,0.5) !important;
+}
+.message-notifications .mn-item-wrapper .mn-item-body {
+    background-color: rgb(41, 41, 41) !important;
+}
+.mn-item-wrapper {
+    background-color: rgb(15, 15, 15) !important;
+}
+.message-notifications-content {
+    background-color: rgb(30, 30, 30, 0.9) !important;
+}
+.author-name {
+    color: rgba(255, 255, 255, 0.76) !important;
+}
+.author-name-secondary {
+    color: rgba(255, 255, 255, 0.6) !important;
+}
+strong {
+    color: rgba(64, 91, 209, 1);
+    text-shadow: -2px 0 rgb(0,0,0,0.5),
+    0 2px rgb(0, 0, 0, 0.5),
+    2px 0 rgb(0, 0, 0, 0.5),
+    0 -2px rgb(0, 0, 0, 0.5);
+
+}
+.mn-item.item.unread::after {
+    background-color: rgba(85, 85, 85, 0.7) !important;
+}
