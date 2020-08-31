@@ -221,3 +221,6 @@ div.item-info {
 .modal-message-notifications .mn-item-body-wrapper .mn-item-body {
     color: white !important;
 }
+.mn-item-wrap .mn-item.opened::after {
+    background-color: rgb(80, 80, 80) !important;
+}
