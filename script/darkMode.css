@@ -209,7 +209,7 @@ strong {
 
 }
 .mn-item.item.unread::after {
-    background-color: rgba(0, 0, 0, 0.4) !important;
+    background-color: rgb(41, 41, 41) !important;
 }
 div.item-info {
     background-color: rgb(50, 50, 50) !important;
@@ -217,4 +217,7 @@ div.item-info {
 .mn-item-head {
     background-color: rgb(20, 20, 20) !important;
     color: white;
+}
+.modal-message-notifications .mn-item-body-wrapper .mn-item-body {
+    color: white !important;
 }
