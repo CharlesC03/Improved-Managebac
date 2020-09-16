@@ -37,6 +37,9 @@ div #assets,
 label {
     color: white;
 }
+p {
+    color: rgb(199, 199, 199);
+}
 .date-badge div.day {
     color: black !important;
 }
@@ -44,6 +47,9 @@ h2, h3, h4,
 .checkbox label, .line,
 div.day {
     color:white !important;
+}
+div.due {
+    color: #929292;
 }
 div.description{
     color: #c4c4c4 !important;
@@ -96,6 +102,9 @@ tr.message .title a {
 textarea, section {
     background-color: black;
     color: white;
+}
+div.cell {
+    color: rgb(80, 80, 80);
 }
 .panel-default>.panel-heading {
     background-color: black;

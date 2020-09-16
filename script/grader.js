@@ -392,7 +392,8 @@ function Grader_Tasks(){
 var targetNode = document.querySelector("head");
 var observer = new MutationObserver(function (mutations) {
     if (document.querySelectorAll(".nav li.active").length > 0){
-        if (document.querySelector(".nav li.active").innerText == "Tasks" &&
+        if (window.location.href.search('core_tasks') != -1 &&
+            document.querySelector(".nav li.active").innerText == "Tasks & Units" &&
             document.querySelectorAll("#percentage-text").length === 0 &&
             document.querySelectorAll(".line").length > 0) {Grader_Tasks();}
     }
