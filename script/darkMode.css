@@ -247,8 +247,8 @@ div.item-info {
 .mn-item-wrap .mn-item.opened::after {
     background-color: rgb(80, 80, 80) !important;
 }
-.online-lessons-wrapper {
-    background-color: #000;
+div.online-lessons-wrapper {
+    background-color: rgb(71, 71, 71) !important;
 }
 #units-timeline table td.timeline-unit-name:nth-of-type(n) {
     background-color: #000 !important;
