@@ -106,6 +106,19 @@ textarea, section {
 div.cell {
     color: rgb(80, 80, 80);
 }
+div.cell.stretch {
+    color: rgb(187, 187, 187);
+}
+div.node.core-stream.anchor {
+    background-color: #000;
+}
+div.stream,
+div.stream-wrapper {
+    background-color: #4b4b4b;
+}
+li a[href*='tel:'] {
+    color: #c4c4c4;
+}
 .panel-default>.panel-heading {
     background-color: black;
 }
@@ -156,6 +169,7 @@ select {
 .panel-heading {
     background-color: black !important;
     background-image: none !important;
+    color: white !important;
 }
 a[href*='tel:'], .popover-content label {
     color: gray;
@@ -232,4 +246,16 @@ div.item-info {
 }
 .mn-item-wrap .mn-item.opened::after {
     background-color: rgb(80, 80, 80) !important;
+}
+.online-lessons-wrapper {
+    background-color: #000;
+}
+#units-timeline table td.timeline-unit-name:nth-of-type(n) {
+    background-color: #000 !important;
+}
+td div.month:nth-of-type(even) , #units-timeline table td.progress-line .units-timelines:nth-child(even) {
+    background-color: rgb(39, 39, 39) !important;
+}
+.compact-stream .sortable-stream .node:nth-child(even) {
+    background-color: #2e2e2e !important;
 }
