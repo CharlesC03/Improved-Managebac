@@ -171,9 +171,7 @@ select {
     background-image: none !important;
     color: white !important;
 }
-a[href*='tel:'], .popover-content label {
-    color: gray;
-}
+
 .desc .redactor-styles {
     color: black !important;
 }
@@ -258,4 +256,12 @@ td div.month:nth-of-type(even) , #units-timeline table td.progress-line .units-t
 }
 .compact-stream .sortable-stream .node:nth-child(even) {
     background-color: #2e2e2e !important;
+}
+/* The Popup Message in Dashboard Managebac  */
+div.fix-body-margins p {
+    color: black;
+}
+a[href*='tel:'],
+.popover-content label {
+    color: gray;
 }
