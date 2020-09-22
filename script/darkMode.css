@@ -258,7 +258,7 @@ td div.month:nth-of-type(even) , #units-timeline table td.progress-line .units-t
     background-color: #2e2e2e !important;
 }
 /* The Popup Message in Dashboard Managebac  */
-div.fix-body-margins p {
+div.popover-content div.fix-body-margins p {
     color: black;
 }
 a[href*='tel:'],
