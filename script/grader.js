@@ -336,7 +336,7 @@ function Grader_Tasks(){
         //create element for percent and information
         const percentage_html = document.createElement("h3");
         //add content
-        percentage_html.innerHTML = total_score < total_potential ? `${percentage} (${total_score}/${total_potential})` : "100% Good Job";
+        percentage_html.innerHTML = total_score < total_potential ? `${percentage} (${total_score}/${total_potential})` : "100% Good Job 🎉";
         percentage_html.id = "percentage-text";
         document.querySelector('.agenda').insertBefore(percentage_html, after);
         if (total_score !== total_potential) {

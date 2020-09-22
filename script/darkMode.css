@@ -1,3 +1,4 @@
+/* General */
 body{
     background-color:#141414 !important;
     color:#d9d9d9;
@@ -90,9 +91,6 @@ tr:hover, tr:focus {
     background-color: black !important;
     color: white;
 }
-.highcharts-container {
-    fill: #001f66;
-}
 tr.unread .title a {
     color: #5dadfc
 }
@@ -157,11 +155,7 @@ select {
     background-color: black;
     color: white;
 }
-.redactor-box.redactor-styles-on,
-.form-control {
-    background-color: #212121 !important;
-    color: white;
-}
+
 .fc-scroller.fc-day-grid-container {
     background-color: white;
 }
@@ -257,6 +251,14 @@ td div.month:nth-of-type(even) , #units-timeline table td.progress-line .units-t
 .compact-stream .sortable-stream .node:nth-child(even) {
     background-color: #2e2e2e !important;
 }
+/* Unit details Coloring*/
+.panel.unit-section-at-a-glance {
+    background-color: #777;
+}
+/* IA Topic Coloring */
+div.form-control-static {
+    color: #c5c5c5;
+}
 /* The Popup Message in Dashboard Managebac  */
 div.popover-content div.fix-body-margins p {
     color: black;
@@ -264,4 +266,32 @@ div.popover-content div.fix-body-margins p {
 a[href*='tel:'],
 .popover-content label {
     color: gray;
+}
+/* Study Mode Coloring */
+div.left-side .unit-top-nav{
+    background-color: #303030 !important;
+}
+.left-side>.side-container,
+.right-side .side-container,
+.right-side .personal_note_body {
+    background-color: #6d6d6d !important;
+}
+div.presentation-preview-head {
+    background-color: #bdbdbd;
+}
+.js-preview-body div.resource-body {
+    background-color: #000;
+}
+/* Input Text Box */
+.redactor-box.redactor-styles-on,
+.form-control{
+    background-color: #212121 !important;
+    color: white;
+}
+.redactor-placeholder:before {
+    color: #dbdbdb !important;
+}
+/* CAS hours */
+small.hours {
+    color: rgb(230, 230, 230);
 }
