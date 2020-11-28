@@ -18,7 +18,7 @@ function reloadTabs() {
   //THis reloads all tabs
   chrome.tabs.query(
     {
-      url: 'https:/s/*.managebac.com/student/*',
+      url: 'https://*.managebac.com/student/*',
     },
     function (tabs) {
       // reload tab with one of the methods from linked answer
@@ -29,7 +29,7 @@ function reloadTabs() {
   );
 }
 function checkIfRecent() {
-  const MAX_NO_RELOAD = 24 * 3600000;
+  const MAX_NO_RELOAD = 6 * 3600000;
   let currentTime = new Date().getTime();
   chrome.storage.sync.get({ lastChange: null }, (items) => {
     if (items.lastChange == null) {
