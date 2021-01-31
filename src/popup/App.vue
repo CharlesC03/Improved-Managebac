@@ -1,0 +1,100 @@
+<template>
+  <div>
+    <div class="title">Settings</div>
+    <div v-if="isLoading">
+      <vue-loading
+        type="bars"
+        color="#d9544e"
+        :size="{ width: '50px', height: '50px' }"
+      ></vue-loading>
+    </div>
+    <div v-else class="settings">
+      <p-check v-model="dMode">Dark Mode</p-check>
+    </div>
+    <div>
+      <a> </a>
+    </div>
+  </div>
+</template>
+
+<script>
+import { VueLoading } from "vue-loading-template";
+import PrettyInput from "pretty-checkbox-vue/input";
+import PrettyCheck from "pretty-checkbox-vue/check";
+
+export default {
+  name: "App",
+  components: {
+    "p-check": PrettyCheck,
+    "p-input": PrettyInput,
+    "vue-loading": VueLoading,
+  },
+  data: () => ({
+    isLoading: true,
+    fullPage: false,
+    dMode: null,
+    settings: "lightMode",
+    checkedPlacement: false, // default is one Boolean
+  }),
+  methods: {
+    update() {
+      document.querySelector("body").style.backgroundColor = this.dMode
+        ? "#3b3b3b"
+        : null;
+      document.querySelector("body").style.color = this.dMode ? "1" : null;
+    },
+  },
+  watch: {
+    dMode() {
+      this.isLoading = true;
+      if (!isNaN(this.dMode)) {
+        browser.storage.sync.set({ darkMode: this.dMode });
+        this.update();
+        browser.runtime.sendMessage({ reloadPages: true });
+      }
+      this.isLoading = false;
+    },
+  },
+  created: async function () {
+    let items = await browser.storage.sync.get({ darkMode: false });
+    this.dMode = items.darkMode;
+    console.log(this.dMode);
+    this.update();
+    window.onbeforeunload = () => {};
+    this.isLoading = false;
+  },
+};
+</script>
+
+<style lang="scss">
+@import "~pretty-checkbox/src/pretty-checkbox.scss";
+html {
+  width: 250px;
+  height: 400px;
+}
+body {
+  background-color: rgb(172, 172, 172);
+}
+.title {
+  top: 10px;
+  font-size: 20px;
+  text-align: center;
+  // height: 50px;
+}
+.settings {
+  text-size-adjust: 5;
+  position: absolute;
+  top: 60px;
+  left: 25%;
+  font-size: 15px;
+  // height: 150px;
+}
+.darkMode {
+  background-color: rgb(49, 49, 49);
+  color: rgb(202, 202, 202);
+}
+.lightMode {
+  background-color: #ffffff;
+  color: rgb(0, 0, 0);
+}
+</style>
