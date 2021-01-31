@@ -28,16 +28,17 @@ function reloadTabs() {
     }
   );
 }
+/* In development. */
 function checkIfRecent() {
-  const MAX_NO_RELOAD = 6 * 3600000;
+  const MAX_NO_RELOAD = 20 * 60 * 1000;
   let currentTime = new Date().getTime();
-  chrome.storage.sync.get({ lastChange: null }, (items) => {
-    if (items.lastChange == null) {
-      chrome.storage.sync.set({ lastChange: currentTime });
-    } else if (currentTime - items.lastChange > MAX_NO_RELOAD) {
+  chrome.storage.sync.get({ lastUpdate: null, changeURL: true }, (items) => {
+    if (items.lastUpdate == null) {
+      chrome.storage.sync.set({ lastUpdate: currentTime });
+    } else if (currentTime - items.lastUpdate > MAX_NO_RELOAD) {
       reloadTabs();
-      chrome.storage.sync.set({ lastChange: currentTime });
+      chrome.storage.sync.set({ lastUpdate: currentTime });
     }
   });
 }
-setInterval(checkIfRecent, 20 * MIN);
+// setInterval(checkIfRecent, 5 * MIN);

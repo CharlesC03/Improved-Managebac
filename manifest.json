@@ -1,10 +1,16 @@
 {
   "manifest_version": 2,
   "name": "Improved Managebac",
-  "version": "2.5.3.2",
-  "description": "Improved Managebac improves your experience with Managebac.",
-  "icons": {"128": "images/mb.png"},
-  "permissions": ["*://*.managebac.com/student/*", "storage","tabs"],
+  "version": "2.5.4.0",
+  "description": "Improved Managebac improves your experience with Managebac. To change settings, right click extension and click option.",
+  "icons": {
+    "128": "images/mb.png"
+  },
+  "permissions": [
+    "*://*.managebac.com/student/*",
+    "storage",
+    "tabs"
+  ],
   "web_accessible_resources": [
     "script/darkMode.css"
   ],
@@ -15,20 +21,28 @@
     ]
   },
   "content_scripts": [
-      {
-        "matches": ["*://*.managebac.com/student/*"],
-        "run_at": "document_start",
-        "js": ["script/darkMode.js"]
-      },
-      {
-        "matches": ["https://*.managebac.com/student/*"
-        ],
-        "run_at": "document_idle",
-        "js": ["script/highcharts.js", "script/grader.js"]
-      }
-    ],
+    {
+      "matches": [
+        "*://*.managebac.com/student/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "script/darkMode.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.managebac.com/student/*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "script/highcharts.js",
+        "script/grader.js"
+      ]
+    }
+  ],
   "options_ui": {
     "page": "options.html",
-    "open_in_tab": false
+    "open_in_tab": true
   }
 }

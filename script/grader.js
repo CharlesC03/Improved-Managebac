@@ -341,7 +341,6 @@ function Grader_Tasks() {
     }
     return obj;
   });
-  console.log(data[0].id);
   const dataScoreSort = data.slice();
   dataScoreSort.sort(function (a, b) {
     a = a.total - a.gained;
@@ -362,18 +361,14 @@ function Grader_Tasks() {
     //create element for percent and information
     const percentage_html = document.createElement('h3');
     //add content
-    percentage_html.innerHTML =
-      total_score < total_potential ? `${percentage} (${total_score}/${total_potential})` : '100% Good Job 🎉';
+    percentage_html.innerHTML = total_score < total_potential ? `${percentage} (${total_score}/${total_potential})` : '100% Good Job 🎉';
     percentage_html.id = 'percentage-text';
     document.querySelector('.agenda').insertBefore(percentage_html, after);
     if (total_score < total_potential) {
       const greatest_effect_assignment = document.createElement('p');
       greatest_effect_assignment.id = 'greatest-effect';
-      greatest_effect_assignment.innerHTML = `Most Important Assignment: ${dataScoreSort[0].name}\n(Was Due on: ${
-        dataScoreSort[0].date
-      }, Affects Grade: ${
-        (total_score / total_potential - (dataScoreSort[0].total - data[0].gained + total_score) / total_potential) *
-        100
+      greatest_effect_assignment.innerHTML = `Most Important Assignment: ${dataScoreSort[0].name}\n(Was Due on: ${dataScoreSort[0].date}, Affects Grade: ${
+        (total_score / total_potential - (dataScoreSort[0].total - data[0].gained + total_score) / total_potential) * 100
       }%)`;
       //Create List of assignments with points lost
       const assignment_list = document.createElement('p');
@@ -423,7 +418,7 @@ function Grader_Tasks() {
   return;
 }
 function lastUpdate() {
-  //pass
+  /* Checks if out of date */
   let time = new Date().getTime();
   chrome.storage.sync.set({ lastChange: time });
 }
@@ -438,9 +433,28 @@ function main() {
     ) {
       Grader_Tasks();
     }
+    /* This is to change url */
+    if (window.location.href.search('classes') != -1) {
+      chrome.storage.sync.get({changeURL: true}, function (item) {
+        console.log("here");
+        if(item.changeURL){
+          console.log("here");
+          let unitURL = new RegExp(".*\/units");
+          let unit_url_loc = document.querySelector("ul.nav.nav-tabs").children;
+          for(var i = 0; i<= unit_url_loc.length; i++){
+            if(unitURL.test(unit_url_loc[i].firstElementChild.href)){
+              unit_url_loc = i;
+              break
+            }
+          }
+          document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href = 
+          document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href.replace("units", "core_tasks");
+        }
+      })
+    }
   }
   //Sets value of last update
-  lastUpdate();
+  // lastUpdate();
 }
 var targetNode = document.querySelector('head');
 var observer = new MutationObserver(function (mutations) {
