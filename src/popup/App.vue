@@ -9,8 +9,8 @@
       ></vue-loading>
     </div>
     <div v-else class="settings">
-      <p-check v-model="dMode">Dark Mode</p-check>
-      <p-check v-model="graph_mode">Use Improve Managebac Graph</p-check>
+      <p-check v-model="dark_mode">Dark Mode</p-check><br>
+      <p-check v-model="graph_mode">Use Improve Managebac Graph</p-check><br>
       <p-check v-model="url_change">Change Unit Url to All Tasks</p-check>
     </div>
     <div>
@@ -34,33 +34,54 @@ export default {
   data: () => ({
     isLoading: true,
     fullPage: false,
-    dMode: null,
+    dark_mode: null,
+    graph_mode: null,
+    url_change: null,
     settings: "lightMode",
     checkedPlacement: false, // default is one Boolean
   }),
   methods: {
     update() {
-      document.querySelector("body").style.backgroundColor = this.dMode
+      document.querySelector("body").style.backgroundColor = this.dark_mode
         ? "#3b3b3b"
         : null;
-      document.querySelector("body").style.color = this.dMode ? "1" : null;
+      document.querySelector("body").style.color = this.dark_mode ? "1" : null;
     },
   },
   watch: {
-    dMode() {
+    dark_mode() {
       this.isLoading = true;
-      if (!isNaN(this.dMode)) {
-        browser.storage.sync.set({ darkMode: this.dMode });
+      if (!isNaN(this.dark_mode)) {
+        browser.storage.sync.set({ darkMode: this.dark_mode });
         this.update();
         browser.runtime.sendMessage({ reloadPages: true });
       }
       this.isLoading = false;
     },
+    async graph_mode() {
+      this.isLoading = true;
+      if (!isNaN(this.graph_mode)) {
+        browser.storage.sync.set({ graphMode: this.graph_mode });
+      }
+      this.update();
+      browser.runtime.sendMessage({ reloadPages: true });
+      this.isLoading = false;
+    },
+    async url_change() {
+      this.isLoading = true;
+      if (!isNaN(this.url_change)) {
+        browser.storage.sync.set({ changeURL: this.url_change });
+      }
+      this.update();
+      browser.runtime.sendMessage({ reloadPages: true });
+      this.isLoading = false;
+    },
   },
   created: async function () {
-    let items = await browser.storage.sync.get({ darkMode: false });
-    this.dMode = items.darkMode;
-    console.log(this.dMode);
+    let items = await browser.storage.sync.get({ darkMode: false, graphMode: true, changeURL: true });
+    this.dark_mode = items.darkMode;
+    this.graph_mode = items.graphMode;
+    this.url_change = items.changeURL;
     this.update();
     window.onbeforeunload = () => {};
     this.isLoading = false;
@@ -71,8 +92,8 @@ export default {
 <style lang="scss">
 @import "~pretty-checkbox/src/pretty-checkbox.scss";
 html {
-  width: 250px;
-  height: 400px;
+  width: 300px;
+  height: 150px;
 }
 body {
   background-color: rgb(172, 172, 172);
@@ -87,7 +108,7 @@ body {
   text-size-adjust: 5;
   position: absolute;
   top: 60px;
-  left: 25%;
+  left: 10px;
   font-size: 15px;
   // height: 150px;
 }

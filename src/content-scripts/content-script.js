@@ -1,5 +1,4 @@
 var Highcharts = require('highcharts');
-// console.log('uerbigbfewiubfiu');
 function GraphMode(graphData, darkMode) {
     const y_dataA = graphData.map((obj) => 100 * (obj.gained / obj.total));
     const y_dataOT = graphData.map((_, index) => {
@@ -438,9 +437,7 @@ function main() {
         /* This is to change url */
         if (window.location.href.search('classes') != -1) {
             chrome.storage.sync.get({changeURL: true}, function (item) {
-                console.log("here");
                 if(item.changeURL){
-                    console.log("here");
                     let unitURL = new RegExp(".*\/units");
                     let unit_url_loc = document.querySelector("ul.nav.nav-tabs").children;
                     for(var i = 0; i<= unit_url_loc.length; i++){

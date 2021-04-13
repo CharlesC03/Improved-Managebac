@@ -9,8 +9,8 @@
       ></vue-loading>
     </div>
     <div v-else class="settings">
-      <p-check v-model="dark_mode">Dark Mode</p-check>
-      <p-check v-model="graph_mode">Use Improve Managebac Graph</p-check>
+      <p-check v-model="dark_mode">Dark Mode</p-check><br>
+      <p-check v-model="graph_mode">Use Improve Managebac Graph</p-check><br>
       <p-check v-model="url_change">Change Unit Url to All Tasks</p-check>
     </div>
   </div>
@@ -69,7 +69,7 @@ export default {
     async url_change() {
       this.isLoading = true;
       if (!isNaN(this.url_change)) {
-        browser.storage.sync.set({ graphMode: this.url_change });
+        browser.storage.sync.set({ changeURL: this.url_change });
       }
       this.update();
       browser.runtime.sendMessage({ reloadPages: true });
@@ -80,7 +80,7 @@ export default {
     let items = await browser.storage.sync.get({ darkMode: false, graphMode: true, changeURL: true });
     this.dark_mode = items.darkMode;
     this.graph_mode = items.graphMode;
-    this.changeURL = items.changeURL;
+    this.url_change = items.changeURL;
     this.update();
     this.isLoading = false;
   },
