@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Improved Managebac",
-  "version": "3.0.0.0",
+  "version": "2.6.0.0",
   "description": "A Vue Browser Extension",
   "default_locale": "en",
   "permissions": [
@@ -12,9 +12,7 @@
     "tabs"
   ],
   "icons": {
-    "16": "icons/16.png",
-    "48": "icons/48.png",
-    "128": "icons/128.png"
+    "128": "icons/mb.png"
   },
   "background": {
     "scripts": [
@@ -29,7 +27,7 @@
       ],
       "run_at": "document_start",
       "js": [
-        "scr/content-scripts/darkMode.js"
+        "js/darkMode.js"
       ]
     },
     {
@@ -38,8 +36,7 @@
       ],
       "run_at": "document_idle",
       "js": [
-        "script/highcharts.js",
-        "script/grader.js"
+        "js/content-script.js"
       ]
     }
   ],
@@ -47,8 +44,7 @@
     "default_popup": "popup.html",
     "default_title": "Improved Managebac",
     "default_icon": {
-      "19": "icons/19.png",
-      "38": "icons/38.png"
+      "128": "icons/mb.png"
     }
   },
   "options_ui": {

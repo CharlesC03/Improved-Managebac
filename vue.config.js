@@ -20,6 +20,7 @@ module.exports = {
         contentScripts: {
           entries: {
             'content-script': ['src/content-scripts/content-script.js'],
+            'darkMode': ['src/content-scripts/darkMode.js'],
           },
         },
       },

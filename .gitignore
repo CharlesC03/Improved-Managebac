@@ -1,6 +1,4 @@
 .DS_Store
-node_modules
-/dist
 
 
 # local env files
@@ -27,3 +25,9 @@ pnpm-debug.log*
 *.pub
 *.zip
 /artifacts
+/dist
+
+# NPM & Yarn
+node_modules
+package-lock.json
+yarn.lock

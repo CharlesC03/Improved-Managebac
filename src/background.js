@@ -1,19 +1,3 @@
-browser.runtime.onMessage.addListener(function(request, _, _) {
-  // console.log('Hello from the background');
-  // console.log(request);
-  if (request.reloadPages) {
-    browser.tabs.query({ url: '*://stackoverflow.com/*' }).then((tabs) => {
-      tabs.forEach((tab) => {
-        chrome.tabs.reload(tab.id);
-      });
-    });
-  }
-  if (request.runContentScript) {
-    browser.tabs.executeScript({
-      file: 'content-script.js',
-    });
-  }
-});
 const MIN = 60 * 1000;
 //If darkMode request, then add darkMode to all tabs
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
@@ -24,14 +8,17 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
       },
       function (tabs) {
         tabs.forEach((tab) => {
-          chrome.tabs.insertCSS(tab.id, { file: 'script/darkMode.css' });
+          chrome.tabs.insertCSS(tab.id, { file: 'style/dark_mode.css' });
         });
       }
     );
   }
+  if (request.reloadPages){
+    reloadTabs();
+  }
 });
 function reloadTabs() {
-  //THis reloads all tabs
+  //This reloads all tabs
   chrome.tabs.query(
     {
       url: 'https://*.managebac.com/student/*',

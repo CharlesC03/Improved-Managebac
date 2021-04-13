@@ -1,4 +1,4 @@
-<template>
+b <template>
   <div>
     <p>{{ defaultText }}</p>
   </div>
