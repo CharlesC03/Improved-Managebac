@@ -1,0 +1,54 @@
+{
+  "manifest_version": 2,
+  "name": "Improved Managebac",
+  "version": "2.6.0.0",
+  "description": "A Vue Browser Extension",
+  "default_locale": "en",
+  "permissions": [
+    "activeTab",
+    "<all_urls>",
+    "*://*/*",
+    "storage",
+    "tabs"
+  ],
+  "icons": {
+    "128": "icons/mb.png"
+  },
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ],
+    "persistent": false
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.managebac.com/student/*"
+      ],
+      "run_at": "document_start",
+      "js": [
+        "js/darkMode.js"
+      ]
+    },
+    {
+      "matches": [
+        "https://*.managebac.com/student/*"
+      ],
+      "run_at": "document_idle",
+      "js": [
+        "js/content-script.js"
+      ]
+    }
+  ],
+  "browser_action": {
+    "default_popup": "popup.html",
+    "default_title": "Improved Managebac",
+    "default_icon": {
+      "128": "icons/mb.png"
+    }
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  }
+}
