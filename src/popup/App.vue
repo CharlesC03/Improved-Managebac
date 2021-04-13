@@ -34,6 +34,7 @@ export default {
   data: () => ({
     isLoading: true,
     fullPage: false,
+    initialItems: null,
     dark_mode: null,
     graph_mode: null,
     url_change: null,
@@ -51,7 +52,8 @@ export default {
   watch: {
     dark_mode() {
       this.isLoading = true;
-      if (!isNaN(this.dark_mode)) {
+      if (!isNaN(this.dark_mode) && this.initialItems.darkMode !== this.dark_mode) {
+        this.initialItems.darkMode = null;
         browser.storage.sync.set({ darkMode: this.dark_mode });
         this.update();
         browser.runtime.sendMessage({ reloadPages: true });
@@ -60,30 +62,31 @@ export default {
     },
     async graph_mode() {
       this.isLoading = true;
-      if (!isNaN(this.graph_mode)) {
+      if (!isNaN(this.graph_mode) && this.initialItems.graphMode !== this.graph_mode) {
+        this.initialItems.graphMode = null;
         browser.storage.sync.set({ graphMode: this.graph_mode });
+        browser.runtime.sendMessage({ reloadPages: true });
       }
-      this.update();
-      browser.runtime.sendMessage({ reloadPages: true });
       this.isLoading = false;
     },
     async url_change() {
       this.isLoading = true;
-      if (!isNaN(this.url_change)) {
+      if (!isNaN(this.url_change) && this.initialItems.changeURL !== this.url_change) {
+        this.initialItems.changeURL = null;
         browser.storage.sync.set({ changeURL: this.url_change });
+        browser.runtime.sendMessage({ reloadPages: true });
       }
-      this.update();
-      browser.runtime.sendMessage({ reloadPages: true });
       this.isLoading = false;
     },
   },
   created: async function () {
     let items = await browser.storage.sync.get({ darkMode: false, graphMode: true, changeURL: true });
+    this.initialItems = items;
     this.dark_mode = items.darkMode;
     this.graph_mode = items.graphMode;
     this.url_change = items.changeURL;
     this.update();
-    window.onbeforeunload = () => {};
+    // window.onbeforeunload = () => {};
     this.isLoading = false;
   },
 };
