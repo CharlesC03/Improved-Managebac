@@ -449,8 +449,8 @@ function main() {
                         break
                         }
                     }
-                    // document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href = 
-                    document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href.replace("units", "core_tasks");
+                    document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href = 
+                        document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href.replace("units", "core_tasks");
                 }
             })
         }
