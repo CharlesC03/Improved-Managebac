@@ -9,7 +9,9 @@
       ></vue-loading>
     </div>
     <div v-else class="settings">
-      <p-check v-model="dMode">Dark Mode</p-check>
+      <p-check v-model="dark_mode">Dark Mode</p-check>
+      <p-check v-model="graph_mode">Use Improve Managebac Graph</p-check>
+      <p-check v-model="url_change">Change Unit Url to All Tasks</p-check>
     </div>
   </div>
 </template>
@@ -30,15 +32,15 @@ export default {
   data: () => ({
     isLoading: true,
     fullPage: false,
-    dMode: null,
+    dark_mode: null,
+    graph_mode: null,
+    url_change: null,
     settings: "main",
     checkedPlacement: false, // default is one Boolean
   }),
   methods: {
     update(updatePages) {
-      // document.querySelector("body").style.backgroundColor = this.dMode ? "black" : null;
-      // document.querySelector("body").style.color = this.dMode ? "white" : null;
-      if (this.dMode) {
+      if (this.dark_mode) {
         this.settings = "main darkMode";
       } else {
         this.settings = "main lightMode";
@@ -46,10 +48,28 @@ export default {
     },
   },
   watch: {
-    async dMode() {
+    async dark_mode() {
       this.isLoading = true;
-      if (!isNaN(this.dMode)) {
-        browser.storage.sync.set({ darkMode: this.dMode });
+      if (!isNaN(this.dark_mode)) {
+        browser.storage.sync.set({ darkMode: this.dark_mode });
+      }
+      this.update();
+      browser.runtime.sendMessage({ reloadPages: true });
+      this.isLoading = false;
+    },
+    async graph_mode() {
+      this.isLoading = true;
+      if (!isNaN(this.graph_mode)) {
+        browser.storage.sync.set({ graphMode: this.graph_mode });
+      }
+      this.update();
+      browser.runtime.sendMessage({ reloadPages: true });
+      this.isLoading = false;
+    },
+    async url_change() {
+      this.isLoading = true;
+      if (!isNaN(this.url_change)) {
+        browser.storage.sync.set({ graphMode: this.url_change });
       }
       this.update();
       browser.runtime.sendMessage({ reloadPages: true });
@@ -57,8 +77,10 @@ export default {
     },
   },
   created: async function () {
-    let items = await browser.storage.sync.get({ darkMode: false });
-    this.dMode = items.darkMode;
+    let items = await browser.storage.sync.get({ darkMode: false, graphMode: true, changeURL: true });
+    this.dark_mode = items.darkMode;
+    this.graph_mode = items.graphMode;
+    this.changeURL = items.changeURL;
     this.update();
     this.isLoading = false;
   },

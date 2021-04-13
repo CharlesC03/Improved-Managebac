@@ -10,6 +10,8 @@
     </div>
     <div v-else class="settings">
       <p-check v-model="dMode">Dark Mode</p-check>
+      <p-check v-model="graph_mode">Use Improve Managebac Graph</p-check>
+      <p-check v-model="url_change">Change Unit Url to All Tasks</p-check>
     </div>
     <div>
       <a> </a>

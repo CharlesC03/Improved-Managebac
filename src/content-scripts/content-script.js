@@ -440,17 +440,17 @@ function main() {
             chrome.storage.sync.get({changeURL: true}, function (item) {
                 console.log("here");
                 if(item.changeURL){
-                console.log("here");
-                let unitURL = new RegExp(".*\/units");
-                let unit_url_loc = document.querySelector("ul.nav.nav-tabs").children;
-                for(var i = 0; i<= unit_url_loc.length; i++){
-                    if(unitURL.test(unit_url_loc[i].firstElementChild.href)){
-                    unit_url_loc = i;
-                    break
+                    console.log("here");
+                    let unitURL = new RegExp(".*\/units");
+                    let unit_url_loc = document.querySelector("ul.nav.nav-tabs").children;
+                    for(var i = 0; i<= unit_url_loc.length; i++){
+                        if(unitURL.test(unit_url_loc[i].firstElementChild.href)){
+                        unit_url_loc = i;
+                        break
+                        }
                     }
-                }
-                document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href = 
-                document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href.replace("units", "core_tasks");
+                    // document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href = 
+                    document.querySelector("ul.nav.nav-tabs").children[unit_url_loc].firstElementChild.href.replace("units", "core_tasks");
                 }
             })
         }
