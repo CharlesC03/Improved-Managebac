@@ -1,13 +1,11 @@
 {
   "manifest_version": 2,
   "name": "Improved Managebac",
-  "version": "2.6.0.0",
+  "version": "2.6.1",
   "description": "A Vue Browser Extension",
   "default_locale": "en",
   "permissions": [
-    "activeTab",
-    "<all_urls>",
-    "*://*/*",
+    "*://*.managebac.com/student/*",
     "storage",
     "tabs"
   ],
